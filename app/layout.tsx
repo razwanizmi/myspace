@@ -1,5 +1,6 @@
 import './globals.css'
 import {Open_Sans} from 'next/font/google'
+import AuthProvider from '@/app/AuthProvider'
 import NavMenu from '@/app/NavMenu'
 
 const myFont = Open_Sans({weight: '400', subsets: ['latin']})
@@ -15,13 +16,15 @@ interface Props {
 
 export default function RootLayout({children}: Props) {
   return (
-    <html lang="en">
-      <body className={myFont.className}>
-        <div className="container">
-          <NavMenu />
-          <main>{children}</main>
-        </div>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body className={myFont.className}>
+          <div className="container">
+            <NavMenu />
+            <main>{children}</main>
+          </div>
+        </body>
+      </html>
+    </AuthProvider>
   )
 }
