@@ -1,5 +1,6 @@
 import './globals.css'
 import {Open_Sans} from 'next/font/google'
+import NavMenu from '@/app/NavMenu'
 
 const myFont = Open_Sans({weight: '400', subsets: ['latin']})
 
@@ -17,6 +18,7 @@ export default function RootLayout({children}: Props) {
     <html lang="en">
       <body className={myFont.className}>
         <div className="container">
+          <NavMenu />
           <main>{children}</main>
         </div>
       </body>
