@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     .findUnique({where: {email: currentUserEmail}})
     .then(user => user?.id!)
 
-  const record = prisma.follows.create({
+  const record = await prisma.follows.create({
     data: {
       followerId: currentUserId,
       followingId: targetUserId,
